@@ -26,14 +26,15 @@ namespace DotNetWeek7Lab
                     Movie movie = new Movie();
                     Console.WriteLine("Enter movie title");
                     movie.title = Console.ReadLine();
-                    Console.WriteLine("Enter the director of the movie: ");
-                    movie.director = Console.ReadLine();
-                    Console.WriteLine("Enter movie runtime (00:00:00): ");
-                    movie.runningTime = TimeSpan.Parse(Console.ReadLine());
-                    if (movieFile.isUniqueTitle(movie.title)){
+                    if (movieFile.isUniqueTitle(movie.title))
+                    {
                         string input;
                         do
                         {
+                            Console.WriteLine("Enter the director of the movie: ");
+                            movie.director = Console.ReadLine();
+                            Console.WriteLine("Enter movie runtime (00:00:00): ");
+                            movie.runningTime = TimeSpan.Parse(Console.ReadLine());
                             Console.WriteLine("Enter genre (or done to quit)");
                             input = Console.ReadLine();
                             if (input != "done" && input.Length > 0)
