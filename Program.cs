@@ -14,14 +14,14 @@ namespace DotNetWeek7Lab
 
             logger.Info("Program started");
             MovieFile movieFile = new MovieFile(movieFilePath);
-            string choice = "";
+            int choice;
             do
             {
-                Console.WriteLine("1) Add Movie\n2) Display All Movies\nEnter to quit");
-                choice = Console.ReadLine();
+                Console.WriteLine("1) Add Movie\n2) Display All Movies\n3) to quit");
+                choice = Int32.Parse(Console.ReadLine());
                 logger.Info("User choice: {Choice}", choice);
 
-                if(choice == "1")
+                if(choice == 1)
                 {
                     Movie movie = new Movie();
                     Console.WriteLine("Enter movie title");
@@ -48,7 +48,7 @@ namespace DotNetWeek7Lab
                         movieFile.AddMovie(movie);
                     }
                 }
-                else if(choice == "2")
+                else if(choice == 2)
                 {
                     foreach(Movie m in movieFile.Movies)
                     {
@@ -56,10 +56,7 @@ namespace DotNetWeek7Lab
                     }
                 }
 
-
-            }while (choice == "1" || choice == "2");
-
-            string scrubbedFile = FileScrubber.ScrubMovies("movies.csv");
+            }while (choice == 1 || choice == 2);
         }
     }
 }

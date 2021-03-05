@@ -71,7 +71,7 @@ namespace DotNetWeek7Lab
                 // first generate movie id
                 movie.mediaId = Movies.Max(m => m.mediaId) + 1;
                 StreamWriter sw = new StreamWriter(filePath, true);
-                sw.WriteLine($"{movie.mediaId},{movie.title},{string.Join("|", movie.genres)}");
+                sw.WriteLine($"{movie.mediaId},{movie.title},{string.Join("|", movie.genres)},{movie.director},{movie.runningTime}");
                 sw.Close();
                 // add movie details to Lists
                 Movies.Add(movie);
